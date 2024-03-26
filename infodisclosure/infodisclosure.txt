@@ -1,3 +1,19 @@
 Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+The vulnerability is that hackers can access user information that is not intended
+for them to access. This is because the insecure server does not check for string
+usernames and ensure the incoming username is a valid request. We need to check this
+BEFORE actually querying so that we don't get a false positive result and let the
+hacker in.
+
 Which CIA property does tampering violate?
+
+Confidentiality -- the hacker can see passwords and other proprietary data
+Integrity -- hackers can update and corrupt information in the request
+
 What additional security mechanisms can you incorporate?
+
+Ensure the incoming query (i.e. username) is a string and sanitize the username,
+meaning remove any invalid (non-alphanumeric) characters. (implemented in secure.js)
+
+Another possible security mechanism is to use two factor authentication. 

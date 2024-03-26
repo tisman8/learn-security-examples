@@ -1,2 +1,10 @@
 - Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+The vulnerability is that if the call to the database fails, the exception returned will cause
+the whole server to crash. In addition, the request from the user is not sanitized.
+
 - What additional security mechanisms can you incorporate to prevent such attacks?
+
+In addition to the sanitization of the username and the addition of the try/catch block
+to gracefully handle any exceptions, another security mechanism is adding some kind of
+middleware to limit the number of requests per minute to prevent overloading.

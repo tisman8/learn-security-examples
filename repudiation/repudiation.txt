@@ -1,2 +1,9 @@
 - Briefly explain the vulnerability and why the secure version is better at preventing repudiation than the insecure version.
+
+The insecure version does not keep track of what user made what change when so that if there is an issue,
+no one knows when that issue came up or if it was deployed or user introduced. A hacker can
+make changes and no one will know or be able to trace it back to them.
+
 - What additional security mechanisms can you incorporate to prevent such attacks?
+
+A nightly/weekly job to check the logs for issues.

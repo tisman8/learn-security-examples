@@ -1,0 +1,12 @@
+Briefly explain the vulnerability and why the secure version prevents the vulnerability.
+
+The vulnerability is that the insecure server checks ONLY that the request is of a user of
+status 'admin'. The secure server prevents this by ensuring that the user making the request
+is currently logged in (i.e. the user making the request is an actual user).
+
+What additional security mechanisms can you incorporate to prevent such attacks?
+
+An additional security mechanism to use for this situation is to validate
+the user's choice of new role. For example, if the role was supposed to be
+'Student' but the request came in with the string 'Studnet', this will
+cause issues for that user.
